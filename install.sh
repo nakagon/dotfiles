@@ -19,6 +19,8 @@ download() {
     brew install peco
   elif is_ubuntu; then
     apt install peco
+  else
+    apt install peco
   fi
 }
 
