@@ -1,3 +1,5 @@
+[url "https://github.com/"]
+  insteadOf = git@github.com:
 [user]
 	name = nakahiro
 	email = nakahiro1981@gmail.com
@@ -11,7 +13,7 @@
 [push]
   default = tracking
 [core]
-	excludesfile = /Users/nakahiro/.gitignore
+  excludesfile = /Users/nakahiro/.gitignore
   pager = lv -c -Ou8
   editor = vim -c \"set fenc=utf-8\"
 	autocrlf = false
@@ -101,4 +103,4 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [commit]
-    template = ~/.stCommitMsg
+  template = ~/.stCommitMsg
