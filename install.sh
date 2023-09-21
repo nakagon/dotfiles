@@ -19,13 +19,13 @@ download() {
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
   fi
   if is_mac; then
-    brew install peco
+    brew install peco lv
   elif is_ubuntu; then
     apt update
-    apt install peco
+    apt install peco lv
   else
     apt update
-    apt install peco
+    apt install peco lv
   fi
 }
 
