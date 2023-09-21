@@ -7,24 +7,11 @@ SAVEHIST=1000000
 setopt inc_append_history
 setopt share_history
 
-# git-promptの読み込み
-source ~/.zsh/git-prompt.sh
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="codespaces"
 
-# git-completionの読み込み
-fpath=(~/.zsh $fpath)
-zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
-autoload -Uz compinit && compinit
-
-# プロンプトのオプション表示設定
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWSTASHSTATE=true
-GIT_PS1_SHOWUNTRACKEDFILES=true
-GIT_PS1_SHOWUPSTREAM=auto
-
-# プロンプトの表示設定
-setopt PROMPT_SUBST ; PS1='%F{green}%n@%m%f: %F{cyan}%~%f %F{red}$(__git_ps1 "(%s)")%f
-\$ '
-
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
 
 function peco-history-selection() {
   BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
@@ -34,7 +21,6 @@ function peco-history-selection() {
 
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
-
 # cdr
 
 # $HOME/.cache/chpwd-recent-dirs ファイルが存在しなければ作成
@@ -68,8 +54,3 @@ function peco-cdr() {
 zle -N peco-cdr
 bindkey '^E' peco-cdr
 
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="codespaces"
-
-plugins=(git)
-source $ZSH/oh-my-zsh.sh
