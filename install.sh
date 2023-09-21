@@ -18,8 +18,10 @@ download() {
   if is_mac; then
     brew install peco
   elif is_ubuntu; then
+    apt update
     apt install peco
   else
+    apt update
     apt install peco
   fi
 }
