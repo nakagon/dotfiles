@@ -16,8 +16,6 @@
   editor = vim -c \"set fenc=utf-8\"
 	autocrlf = false
 [alias]
-  sf = svn fetch
-  sd = svn dcommit
   st = status -sb
   sta = status
   sh = show
