@@ -28,4 +28,36 @@ alias gitc=cool-peco-git-checkout
 alias gitl=cool-peco-git-log
 alias pecoref="cat ~/.zshrc | grep -i cool-peco"
 
+# cdr
+# $HOME/.cache/chpwd-recent-dirs ファイルが存在しなければ作成
+[[ ! -d "$HOME/.cache" ]] && mkdir "$HOME/.cache"
+[[ ! -f "$HOME/.cache/chpwd-recent-dirs" ]] && touch "$HOME/.cache/chpwd-recent-dirs"
+
+if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
+    autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+    add-zsh-hook chpwd chpwd_recent_dirs
+    zstyle ':completion:*' recent-dirs-insert both
+    zstyle ':chpwd:*' recent-dirs-default true
+    zstyle ':chpwd:*' recent-dirs-max 1000
+    zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/chpwd-recent-dirs"
+fi
+
+function peco-get-destination-from-cdr() {
+  cdr -l | \
+  sed -e 's/^[[:digit:]]*[[:blank:]]*//' | \
+  peco --query "$LBUFFER"
+}
+
+function peco-cdr() {
+  local destination="$(peco-get-destination-from-cdr)"
+  if [ -n "$destination" ]; then
+    BUFFER="cd $destination"
+    zle accept-line
+  else
+    zle reset-prompt
+  fi
+}
+zle -N peco-cdr
+bindkey '^E' peco-cdr
+
 eval "$(direnv hook zsh)"
