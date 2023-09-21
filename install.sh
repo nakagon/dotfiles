@@ -36,7 +36,7 @@ backup () {
 install() {
   for file in "${dotfiles_path}"/.*; do
     [[ $(basename "$file") == "." || $(basename "$file") == ".." || $(basename "$file") == ".git" ]] && continue
-    cp "${file}" "${HOME}/"
+    cp -r "${file}" "${HOME}/"
   done
   source "${HOME}/.bash_profile"
 }
