@@ -18,6 +18,8 @@ download() {
   if [ ! -d "${HOME}/.oh-my-zsh" ]; then
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
   fi
+
+
   if is_mac; then
     brew install peco lv
   elif is_ubuntu; then
@@ -41,6 +43,9 @@ backup () {
 }
 
 install() {
+  # add submodule
+  git submodule update --init --recursive
+
   for file in "${dotfiles_path}"/.*; do
     [[ $(basename "$file") == "." || $(basename "$file") == ".." || $(basename "$file") == ".git" ]] && continue
     cp -r "${file}" "${HOME}/"
@@ -60,6 +65,9 @@ main() {
   download
   backup
   install
+
+  #change shell
+  chsh -s $(which zsh)
 }
 
 main "$@"
