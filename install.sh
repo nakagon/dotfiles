@@ -22,16 +22,37 @@ download() {
   fi
 }
 
+backup () {
+  [[ ! -d "$backup_dir" ]] && mkdir -p "$backup_dir"
+  
+  for file in "${dotfiles_path}"/.*; do
+    [[ $(basename "$file") == "." || $(basename "$file") == ".." ]] && continue
+    if [[ -f "${HOME}/$(basename "$file")" ]]; then
+      mv "${HOME}/$(basename "$file")" "$backup_dir/"
+    fi
+  done
+}
+
 install() {
-  # ln -sf ~/dotfiles/.zshrc ~/.zshrc
+  for file in "${dotfiles_path}"/.*; do
+    [[ $(basename "$file") == "." || $(basename "$file") == ".." || $(basename "$file") == ".git" ]] && continue
+    cp "${file}" "${HOME}/"
+  done
+  source "${HOME}/.bash_profile"
 }
 
 main() {
   local -r dotfiles_path="$(realpath "${1:-"${HOME}/dotfiles"}")"
+  local -r backup_dir="${HOME}/backups/$(date +%Y%m%d)"
 
-  echo ${dotfiles_path}
+  if [[ $dotfiles_path == "" ]]; then 
+    echo "dotfiles path is empty"
+    return 0
+  fi
+
   download
+  backup
   install
 }
 
-main @*
+main "$@"
