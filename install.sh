@@ -15,6 +15,7 @@ is_ubuntu() {
 }
 
 download() {
+  curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
   if is_mac; then
     brew install peco
   elif is_ubuntu; then

@@ -25,6 +25,7 @@ GIT_PS1_SHOWUPSTREAM=auto
 setopt PROMPT_SUBST ; PS1='%F{green}%n@%m%f: %F{cyan}%~%f %F{red}$(__git_ps1 "(%s)")%f
 \$ '
 
+
 function peco-history-selection() {
   BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
   CURSOR=$#BUFFER
@@ -66,3 +67,9 @@ function peco-cdr() {
 }
 zle -N peco-cdr
 bindkey '^E' peco-cdr
+
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="codespaces"
+
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
