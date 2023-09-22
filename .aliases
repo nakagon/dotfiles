@@ -1,6 +1,11 @@
 # git
 alias gits='git sta'
 alias gitci='git ci'
+alias gitco='git co'
+alias gitbr='git br'
+alias gitd='git diff'
+alias gitad='git add'
+alias gitl='git loga'
 alias gitp='git pull --rebase'
 alias gitcim='git ci -am'
 alias gitps='git push'
@@ -14,3 +19,10 @@ alias cps=cool-peco-ps
 alias gitc=cool-peco-git-checkout
 alias gitl=cool-peco-git-log
 alias pecoref="cat ~/.zshrc | grep -i cool-peco"
+
+
+# docker
+function dc() {
+    docker compose "$@"
+}
+compdef dc=docker-compose
