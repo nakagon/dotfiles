@@ -1,5 +1,16 @@
 # git
-alias gis='git sta'
-alias gic='git ci'
-alias gip='git pull --rebase'
-alias gicam='git ci -am'
+alias gits='git sta'
+alias gitci='git ci'
+alias gitp='git pull --rebase'
+alias gitcim='git ci -am'
+alias gitps='git push'
+alias gitrs='git reset --soft HEAD^'
+alias gitsu='git submodule update --init --recursive'
+alias gitsta='git stash'
+alias gitstap='git stash pop'
+
+# cool-peco
+alias cps=cool-peco-ps
+alias gitc=cool-peco-git-checkout
+alias gitl=cool-peco-git-log
+alias pecoref="cat ~/.zshrc | grep -i cool-peco"

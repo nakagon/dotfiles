@@ -23,10 +23,7 @@ bindkey '^r' cool-peco-history
 bindkey '^h' cool-peco-ssh
 bindkey '^p' cool-peco-ps
 bindkey '^f' cool-peco-filename-search
-alias cps=cool-peco-ps
-alias gitc=cool-peco-git-checkout
-alias gitl=cool-peco-git-log
-alias pecoref="cat ~/.zshrc | grep -i cool-peco"
+
 
 # cdr
 # $HOME/.cache/chpwd-recent-dirs ファイルが存在しなければ作成
