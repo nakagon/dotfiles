@@ -1,3 +1,8 @@
+# ***********************
+# General
+# ***********************
+.bundle
+
 # https://github.com/github/gitignore/tree/main/Global
 
 # ***********************
@@ -30,3 +35,12 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+
+# ***********************
+# for Windows
+# ***********************
+
+*.DS_Store
+*.LSOverride
+Thumbs.db

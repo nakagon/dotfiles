@@ -1,0 +1,5 @@
+# git
+alias gis='git sta'
+alias gic='git ci'
+alias gip='git pull --rebase'
+alias gicam='git ci -am'
