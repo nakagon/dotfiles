@@ -15,6 +15,8 @@ alias gitrs='git reset --soft HEAD^'
 alias gitsu='git submodule update --init --recursive'
 alias gitsta='git stash'
 alias gitstap='git stash pop'
+alias git-merged-branch='git branch --merged|egrep -v "\*|develop|main|master"'
+alias git-merged-branch-delete='git branch --merged|egrep -v "\*|develop|main|master" | xargs git branch -d'
 
 # cool-peco
 alias cps=cool-peco-ps
