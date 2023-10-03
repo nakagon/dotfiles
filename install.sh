@@ -24,10 +24,10 @@ download() {
     brew install peco lv
   elif is_ubuntu; then
     apt update
-    apt install peco lv
+    apt install -y peco lv
   else
     apt update
-    apt install peco lv
+    apt install -y peco lv
   fi
 }
 
