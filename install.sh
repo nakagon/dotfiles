@@ -54,7 +54,13 @@ install() {
 }
 
 main() {
-  local -r dotfiles_path="$(realpath "${1:-"${HOME}/dotfiles"}")"
+  if [[ -d "/workspaces/.codespaces/.persistedshare/" ]]; then
+    # Codespacesの場合
+    dotfiles_path="/workspaces/.codespaces/.persistedshare/dotfiles"
+  else
+    dotfiles_path="${HOME}/dotfiles"
+  fi
+  local -r dotfiles_path="$(realpath "${1:-"$dotfiles_path"}")"
   local -r backup_dir="${HOME}/backups/$(date +%Y%m%d)"
 
   if [[ $dotfiles_path == "" ]]; then 
