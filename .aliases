@@ -29,4 +29,3 @@ alias pecoref="cat ~/.zshrc | grep -i cool-peco"
 function dc() {
     docker compose "$@"
 }
-compdef dc=docker-compose
