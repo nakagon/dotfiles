@@ -15,7 +15,7 @@ source $ZSH/oh-my-zsh.sh
 
 # cool-peco
 # === cool-peco init ===
-FPATH="$FPATH:$HOME/dotfiles/cool-peco"
+FPATH="$FPATH:$HOME/.cool-peco"
 autoload -Uz cool-peco
 cool-peco
 # ======================
