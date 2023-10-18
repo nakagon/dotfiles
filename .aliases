@@ -29,3 +29,5 @@ alias pecoref="cat ~/.zshrc | grep -i cool-peco"
 function dc() {
     docker compose "$@"
 }
+
+alias zmv='noglob zmv -W'

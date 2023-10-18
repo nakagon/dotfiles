@@ -59,4 +59,7 @@ bindkey '^W' peco-cdr
 
 eval "$(direnv hook zsh)"
 
+autoload -U zcalc
+autoload -Uz zmv
+
 source $HOME/.aliases 
