@@ -15,11 +15,9 @@ is_ubuntu() {
 }
 
 download() {
-  export HOME=/home/vscode
   if [ ! -d "${HOME}/.oh-my-zsh" ]; then
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
   fi
-
 
   if is_mac; then
     brew install peco lv
