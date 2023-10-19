@@ -13,6 +13,7 @@ ZSH_THEME="codespaces"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
+
 # cool-peco
 # === cool-peco init ===
 FPATH="$FPATH:$HOME/.cool-peco"
@@ -63,3 +64,6 @@ autoload -U zcalc
 autoload -Uz zmv
 
 source $HOME/.aliases 
+
+DISABLE_AUTO_UPDATE=true
+DISABLE_UPDATE_PROMPT=true
