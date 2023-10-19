@@ -74,7 +74,7 @@ main() {
   install
 
   #change shell
-  chsh -s $(which zsh)
+  # chsh -s $(which gizsh)
 }
 
 main "$@"
