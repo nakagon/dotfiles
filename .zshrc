@@ -60,6 +60,13 @@ bindkey '^W' peco-cdr
 
 eval "$(direnv hook zsh)"
 
+# GOENV/GOLANG
+export GOPATH=$HOME
+export PATH="$GOPATH/bin:$PATH"
+export GOENV_ROOT="$HOME/.goenv"
+eval "$(goenv init -)"
+
+# AUTOLOAD
 autoload -U zcalc
 autoload -Uz zmv
 
