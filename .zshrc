@@ -60,6 +60,10 @@ bindkey '^W' peco-cdr
 
 eval "$(direnv hook zsh)"
 
+# RBENV/RUBY
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
 # GOENV/GOLANG
 export GOPATH=$HOME
 export PATH="$GOPATH/bin:$PATH"
