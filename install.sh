@@ -23,10 +23,12 @@ download() {
     brew install peco lv goenv
   elif is_ubuntu; then
     apt-get update
-    apt-get install -y peco lv goenv
+    apt-get install -y peco lv
+    git clone https://github.com/syndbg/goenv.git ~/.goenv
   else
     apt-get update
-    apt-get install -y peco lv goenv
+    apt-get install -y peco lv
+    git clone https://github.com/syndbg/goenv.git ~/.goenv
   fi
 }
 
