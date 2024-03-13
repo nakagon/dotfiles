@@ -22,11 +22,11 @@ download() {
   if is_mac; then
     brew install peco lv goenv
   elif is_ubuntu; then
-    apt update
-    apt install -y peco lv goenv
+    apt-get update
+    apt-get install -y peco lv goenv
   else
-    apt update
-    apt install -y peco lv goenv
+    apt-get update
+    apt-get install -y peco lv goenv
   fi
 }
 
