@@ -52,6 +52,7 @@ install() {
     [[ $(basename "$file") == "." || $(basename "$file") == ".." || $(basename "$file") == ".git" ]] && continue
     cp -r "${file}" "${HOME}/"
   done
+  mv ${HOME}/.cool-peco ${HOME}/cool-peco
   source "${HOME}/.bash_profile"
 }
 

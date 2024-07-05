@@ -16,7 +16,7 @@ source $ZSH/oh-my-zsh.sh
 
 # cool-peco
 # === cool-peco init ===
-FPATH="$FPATH:$HOME/.cool-peco"
+FPATH="$FPATH:$HOME/cool-peco"
 autoload -Uz cool-peco
 cool-peco
 # ======================
@@ -78,3 +78,5 @@ source $HOME/.aliases
 
 DISABLE_AUTO_UPDATE=true
 DISABLE_UPDATE_PROMPT=true
+
+dc up -d
