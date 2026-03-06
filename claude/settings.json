@@ -110,6 +110,13 @@
       "env": {
         "CODEX_HOME": "/Users/nakahiro/.codex"
       }
+    },
+    "lazytail": {
+      "type": "stdio",
+      "command": "/Users/nakahiro/.local/bin/lazytail",
+      "args": [
+        "--mcp"
+      ]
     }
   }
 }
