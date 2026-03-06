@@ -61,6 +61,13 @@ if status is-interactive
         zoxide init fish | source
     end
 
+    # fzf.fish keybindings (avoid Ctrl+Alt combos that conflict with cmux)
+    #   Ctrl+R  = history (default, kept)
+    #   Ctrl+F  = file search
+    #   Ctrl+G  = git log
+    #   Ctrl+S  = git status
+    fzf_configure_bindings --directory=\cf --git_log=\cg --git_status=\cs
+
     # anyenv (if installed and supports fish)
     if test -d $HOME/.anyenv
         fish_add_path $HOME/.anyenv/bin
