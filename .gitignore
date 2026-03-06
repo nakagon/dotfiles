@@ -1,46 +1,10 @@
-# ***********************
-# General
-# ***********************
-.bundle
-
-# https://github.com/github/gitignore/tree/main/Global
-
-# ***********************
-# for Mac
-# ***********************
-
-# General
+# OS
 .DS_Store
-.AppleDouble
-.LSOverride
 
-# Icon must end with two \r
-Icon
+# Claude Code runtime
+claude/skills/*/node_modules/
 
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-
-
-# ***********************
-# for Windows
-# ***********************
-
-*.DS_Store
-*.LSOverride
-Thumbs.db
+# Fish auto-generated
+fish/conf.d/00_fig_pre.fish
+fish/conf.d/99_fig_post.fish
+fish/fish_variables

@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "permissions": {
+    "allow": [
+      "List(*)",
+      "Fetch(https://*)",
+      "Bash(ls:*)",
+      "Bash(pwd:*)",
+      "Bash(mkdir:*)",
+      "Bash(yarn:*)",
+      "Bash(rg:*)",
+      "Bash(mv:*)",
+      "Bash(echo:*)",
+      "Bash(cd:*)",
+      "Bash(make:*)",
+      "Bash(uv:*)",
+      "Bash(python:*)",
+      "Bash(pytest:*)",
+      "Bash(aerich:*)",
+      "Bash(git status:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "Bash(git checkout:*)",
+      "Bash(git branch:*)",
+      "Bash(git diff:*)",
+      "Bash(git add:*)",
+      "Bash(gh:*)",
+      "Bash(find:*)",
+      "Read(**)",
+      "LS(**)",
+      "Glob(**)",
+      "Grep(**)",
+      "Write(**)",
+      "Edit(**)",
+      "MultiEdit(**)",
+      "Bash(docker:*)",
+      "Bash(docker-compose:*)",
+      "Bash(dramatiq:*)",
+      "Bash(aws logs:*)",
+      "Bash(aws s3:*)",
+      "Bash(aws s3 cp:*)",
+      "Bash(aws s3 mv:*)",
+      "Bash(aws s3 rm:*)",
+      "Bash(aws s3 sync:*)",
+      "Bash(aws s3 ls:*)",
+      "Bash(aws s3 mb:*)",
+      "Bash(aws s3 rb:*)",
+      "Bash(aws bedrock:*)",
+      "mcp__serena__find_referencing_symbols",
+      "mcp__serena__replace_regex",
+      "mcp__serena__list_dir",
+      "mcp__serena__replace_symbol_body",
+      "mcp__serena__insert_after_symbol",
+      "mcp__serena__find_symbol",
+      "mcp__serena__get_symbols_overview",
+      "mcp__serena__search_for_pattern",
+      "mcp__serena__find_file",
+      "mcp__DBHub__execute_sql",
+      "mcp__gemini-cli__googleSearch",
+      "mcp__gemini-cli__geminiChat",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs"
+    ],
+    "deny": [
+      "Write(**/.envrc)",
+      "Write(**/.env.development)",
+      "Write(**/.env)",
+      "Edit(**/.envrc)",
+      "Edit(**/.env.development)",
+      "Edit(**/.env)",
+      "MultiEdit(**/.envrc)",
+      "MultiEdit(**/.env.development)",
+      "MultiEdit(**/.env)"
+    ]
+  },
+  "enabledPlugins": {
+    "claude-delegator@jarrodwatts-claude-delegator": true,
+    "ralph-loop@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "claude-mem@thedotmack": true
+  },
+  "alwaysThinkingEnabled": true,
+  "skipDangerousModePermissionPrompt": true,
+  "additionalDirectories": [
+    "/Users/nakahiro/workspace/samurai-seller/samurai_seller_admin",
+    "/Users/nakahiro/workspace/samurai-seller/samurai_seller_front",
+    "/Users/nakahiro/workspace/samurai-seller/samurai-saller-sls"
+  ],
+  "security": {
+    "allowDirectoryTraversal": true
+  },
+  "feedbackSurveyState": {
+    "lastShownTime": 1754021626360
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
+  },
+  "mcpServers": {
+    "codex": {
+      "type": "stdio",
+      "command": "/Users/nakahiro/.anyenv/envs/nodenv/versions/22.20.0/bin/codex",
+      "args": [
+        "mcp-server"
+      ],
+      "env": {
+        "CODEX_HOME": "/Users/nakahiro/.codex"
+      }
+    }
+  }
+}
