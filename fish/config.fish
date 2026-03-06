@@ -79,6 +79,20 @@ if status is-interactive
     # ================================
     # Abbreviations (better than aliases in fish)
     # ================================
+    # Modern CLI replacements
+    if type -q eza
+        abbr -a ls 'eza --icons'
+        abbr -a ll 'eza -la --icons --git'
+        abbr -a lt 'eza --tree --level=2 --icons'
+    end
+
+    if type -q bat
+        abbr -a cat 'bat --style=plain'
+    end
+
+    abbr -a lg lazygit
+    abbr -a y yazi
+
     # Git
     abbr -a git 'git --no-pager'
     abbr -a gits 'git sta'

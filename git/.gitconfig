@@ -14,7 +14,7 @@
   default = tracking
 [core]
   excludesfile = ~/.gitignore
-  pager = less -R
+  pager = delta
   editor = vim -c \"set fenc=utf-8\"
 	autocrlf = false
 [alias]
@@ -102,4 +102,12 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+  side-by-side = true
+  line-numbers = true
+[merge]
+  conflictstyle = zdiff3
 [commit]
