@@ -120,7 +120,7 @@ if status is-interactive
     # Then run: direnv allow
 
     # Codex alias
-    abbr -a codex 'CODEX_HOME=$PWD/.codex codex'
+    abbr -a codex 'env CODEX_HOME=$PWD/.codex codex'
 
     # Disable MallocStackLogging
     set -e MallocStackLogging
