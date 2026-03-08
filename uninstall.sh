@@ -90,6 +90,10 @@ main() {
   unlink_file "$HOME/.claude/commands"
 
   echo ""
+  log "=== mise ==="
+  unlink_file "$HOME/.config/mise/config.toml"
+
+  echo ""
   log "=== cool-peco ==="
   unlink_file "$HOME/cool-peco"
 

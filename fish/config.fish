@@ -6,24 +6,11 @@ if status is-interactive
     # PATH Settings
     # ================================
     fish_add_path $HOME/.local/bin
-    fish_add_path $HOME/.rbenv/bin
     fish_add_path $HOME/.cargo/bin
-    fish_add_path $HOME/.pyenv/shims
-    fish_add_path $HOME/.antigravity/antigravity/bin
     fish_add_path $HOME/workspace/Claude-Code-Communication
     fish_add_path /opt/homebrew/bin
     fish_add_path /opt/homebrew/opt/openssl@1.1/bin
     fish_add_path /opt/homebrew/opt/libpq/bin
-    fish_add_path (npm prefix -g)/bin
-
-    # ================================
-    # Environment Variables
-    # ================================
-    # Go
-    set -gx GOPATH $HOME
-    set -gx GOENV_ROOT $HOME/.goenv
-    fish_add_path $GOPATH/bin
-
     # Build flags
     set -gx LDFLAGS "-L/opt/homebrew/opt/libffi/lib"
     set -gx CPPFLAGS "-I/opt/homebrew/opt/libffi/include"
@@ -31,19 +18,9 @@ if status is-interactive
     # ================================
     # Tool Initializations
     # ================================
-    # rbenv
-    if type -q rbenv
-        status --is-interactive; and rbenv init - fish | source
-    end
-
-    # pyenv
-    if type -q pyenv
-        pyenv init - | source
-    end
-
-    # goenv
-    if type -q goenv
-        status --is-interactive; and goenv init - fish | source
+    # mise (replaces pyenv, rbenv, nodenv, goenv, anyenv)
+    if type -q mise
+        mise activate fish | source
     end
 
     # direnv
@@ -67,14 +44,6 @@ if status is-interactive
     #   Ctrl+G  = git log
     #   Ctrl+S  = git status
     fzf_configure_bindings --directory=\cf --git_log=\cg --git_status=\cs
-
-    # anyenv (if installed and supports fish)
-    if test -d $HOME/.anyenv
-        fish_add_path $HOME/.anyenv/bin
-        if type -q anyenv
-            status --is-interactive; and source (anyenv init - fish | psub)
-        end
-    end
 
     # ================================
     # Abbreviations (better than aliases in fish)
@@ -156,10 +125,6 @@ if status is-interactive
     # Disable MallocStackLogging
     set -e MallocStackLogging
 end
-
-# bun
-set --export BUN_INSTALL "$HOME/.bun"
-set --export PATH $BUN_INSTALL/bin $PATH
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/nakahiro/workspace/discord_translator/google-cloud-sdk/path.fish.inc' ]; . '/Users/nakahiro/workspace/discord_translator/google-cloud-sdk/path.fish.inc'; end

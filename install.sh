@@ -156,6 +156,19 @@ install_claude() {
   link_file "$DOTFILES_DIR/claude/commands" "$claude_dir/commands"
 }
 
+install_mise() {
+  log "=== mise ==="
+  local mise_config="$HOME/.config/mise"
+  mkdir -p "$mise_config"
+  link_file "$DOTFILES_DIR/mise/config.toml" "$mise_config/config.toml"
+
+  # Install runtimes if mise is available
+  if ! $DRY_RUN && command -v mise >/dev/null 2>&1; then
+    log "Installing mise runtimes (this may take a while)..."
+    mise install --yes 2>/dev/null && ok "mise runtimes installed" || warn "mise install failed (run 'mise install' manually)"
+  fi
+}
+
 install_cool_peco() {
   log "=== cool-peco ==="
   # Init submodule
@@ -197,6 +210,8 @@ main() {
   install_fish
   echo ""
   install_claude
+  echo ""
+  install_mise
   echo ""
   install_cool_peco
 
