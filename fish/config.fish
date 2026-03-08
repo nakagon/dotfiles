@@ -84,6 +84,7 @@ if status is-interactive
         abbr -a ls 'eza --icons'
         abbr -a ll 'eza -la --icons --git'
         abbr -a lt 'eza --tree --level=2 --icons'
+        abbr -a tree 'eza --tree --icons'
     end
 
     if type -q bat
