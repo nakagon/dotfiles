@@ -7,24 +7,9 @@ SAVEHIST=1000000
 setopt inc_append_history
 setopt share_history
 
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="codespaces"
-
-plugins=(git)
-source $ZSH/oh-my-zsh.sh
-
-
-# cool-peco
-# === cool-peco init ===
-FPATH="$FPATH:$HOME/cool-peco"
-autoload -Uz cool-peco
-cool-peco
-# ======================
-bindkey '^r' cool-peco-history
-bindkey '^h' cool-peco-ssh
-bindkey '^p' cool-peco-ps
-bindkey '^f' cool-peco-filename-search
-
+# prompt (minimal, no oh-my-zsh dependency)
+autoload -Uz compinit && compinit
+PS1='%n@%m %1~ %# '
 
 # cdr
 # $HOME/.cache/chpwd-recent-dirs ファイルが存在しなければ作成
@@ -40,41 +25,21 @@ if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]
     zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/chpwd-recent-dirs"
 fi
 
-function peco-get-destination-from-cdr() {
-  cdr -l | \
-  sed -e 's/^[[:digit:]]*[[:blank:]]*//' | \
-  peco --query "$LBUFFER"
-}
+# direnv
+if command -v direnv &>/dev/null; then
+    eval "$(direnv hook zsh)"
+fi
 
-function peco-cdr() {
-  local destination="$(peco-get-destination-from-cdr)"
-  if [ -n "$destination" ]; then
-    BUFFER="cd $destination"
-    zle accept-line
-  else
-    zle reset-prompt
-  fi
-}
-zle -N peco-cdr
-bindkey '^W' peco-cdr
-
-eval "$(direnv hook zsh)"
-
-# RBENV/RUBY
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-# GOENV/GOLANG
-export GOPATH=$HOME
-export PATH="$GOPATH/bin:$PATH"
-export GOENV_ROOT="$HOME/.goenv"
-eval "$(goenv init -)"
+# mise (if available, replaces rbenv/goenv/pyenv)
+if command -v mise &>/dev/null; then
+    eval "$(mise activate zsh)"
+fi
 
 # AUTOLOAD
 autoload -U zcalc
 autoload -Uz zmv
 
-source $HOME/.aliases 
+source $HOME/.aliases
 
 DISABLE_AUTO_UPDATE=true
 DISABLE_UPDATE_PROMPT=true

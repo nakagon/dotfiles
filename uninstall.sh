@@ -66,8 +66,6 @@ main() {
   unlink_file "$HOME/.zshrc"
   unlink_file "$HOME/.aliases"
   unlink_file "$HOME/.bash_profile"
-  unlink_file "$HOME/.oh-my-zsh"
-  unlink_file "$HOME/.zsh"
 
   echo ""
   log "=== Fish shell ==="
@@ -92,10 +90,6 @@ main() {
   echo ""
   log "=== mise ==="
   unlink_file "$HOME/.config/mise/config.toml"
-
-  echo ""
-  log "=== cool-peco ==="
-  unlink_file "$HOME/cool-peco"
 
   echo ""
   if $DRY_RUN; then

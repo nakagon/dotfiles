@@ -78,16 +78,6 @@ install_zsh() {
   link_file "$DOTFILES_DIR/zsh/.zshrc"        "$HOME/.zshrc"
   link_file "$DOTFILES_DIR/zsh/.aliases"      "$HOME/.aliases"
   link_file "$DOTFILES_DIR/zsh/.bash_profile" "$HOME/.bash_profile"
-
-  # oh-my-zsh custom dir
-  if [ -d "$DOTFILES_DIR/.oh-my-zsh" ]; then
-    link_file "$DOTFILES_DIR/.oh-my-zsh" "$HOME/.oh-my-zsh"
-  fi
-
-  # .zsh dir (git completions etc.)
-  if [ -d "$DOTFILES_DIR/.zsh" ]; then
-    link_file "$DOTFILES_DIR/.zsh" "$HOME/.zsh"
-  fi
 }
 
 install_fish() {
@@ -169,17 +159,6 @@ install_mise() {
   fi
 }
 
-install_cool_peco() {
-  log "=== cool-peco ==="
-  # Init submodule
-  if ! $DRY_RUN; then
-    (cd "$DOTFILES_DIR" && git submodule update --init --recursive 2>/dev/null || true)
-  fi
-  if [ -d "$DOTFILES_DIR/.cool-peco" ]; then
-    link_file "$DOTFILES_DIR/.cool-peco" "$HOME/cool-peco"
-  fi
-}
-
 # ================================
 # Main
 # ================================
@@ -212,8 +191,6 @@ main() {
   install_claude
   echo ""
   install_mise
-  echo ""
-  install_cool_peco
 
   echo ""
   if $DRY_RUN; then
