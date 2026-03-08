@@ -35,6 +35,10 @@ if command -v mise &>/dev/null; then
     eval "$(mise activate zsh)"
 fi
 
+# fzf
+[ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ] && source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+[ -f /opt/homebrew/opt/fzf/shell/completion.zsh ] && source /opt/homebrew/opt/fzf/shell/completion.zsh
+
 # AUTOLOAD
 autoload -U zcalc
 autoload -Uz zmv
