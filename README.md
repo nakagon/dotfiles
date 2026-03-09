@@ -68,6 +68,8 @@ dotfiles/
 | [lazygit](https://github.com/jesseduffield/lazygit) | Git TUI | `lg` |
 | [yazi](https://github.com/sxyazi/yazi) | ファイラー TUI | `y` |
 | [lazytail](https://github.com/raaymax/lazytail) | ログビューア | MCP 連携 |
+| [difit](https://github.com/nicolo-ribaudo/difit) | コードレビュー diff ビューア | `difit` abbr |
+| [codex](https://github.com/openai/codex) | OpenAI Codex CLI | `codex` abbr |
 
 ## Fish キーバインド
 
