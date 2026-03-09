@@ -62,6 +62,7 @@ if status is-interactive
 
     abbr -a lg lazygit
     abbr -a y yazi
+    abbr -a difit 'env NODE_ENV=production difit'
 
     # Git
     abbr -a git 'git --no-pager'
