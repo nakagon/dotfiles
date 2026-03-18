@@ -77,6 +77,10 @@
       "MultiEdit(**/.env)"
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
+  },
   "enabledPlugins": {
     "claude-delegator@jarrodwatts-claude-delegator": true,
     "ralph-loop@claude-plugins-official": true,
@@ -95,10 +99,6 @@
   },
   "feedbackSurveyState": {
     "lastShownTime": 1754021626360
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "bash ~/.claude/statusline-command.sh"
   },
   "mcpServers": {
     "codex": {
