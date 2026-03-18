@@ -11,9 +11,11 @@ if status is-interactive
     fish_add_path /opt/homebrew/bin
     fish_add_path /opt/homebrew/opt/openssl@1.1/bin
     fish_add_path /opt/homebrew/opt/libpq/bin
-    # Build flags
-    set -gx LDFLAGS "-L/opt/homebrew/opt/libffi/lib"
-    set -gx CPPFLAGS "-I/opt/homebrew/opt/libffi/include"
+    # Build flags (only if libffi is installed)
+    if test -d /opt/homebrew/opt/libffi
+        set -gx LDFLAGS "-L/opt/homebrew/opt/libffi/lib"
+        set -gx CPPFLAGS "-I/opt/homebrew/opt/libffi/include"
+    end
 
     # ================================
     # Tool Initializations
