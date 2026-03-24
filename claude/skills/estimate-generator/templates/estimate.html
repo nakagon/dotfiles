@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="estimate.css">
+</head>
+<body>
+  <div class="document">
+    <!-- ヘッダー -->
+    {% if type == "rough" %}
+    <h1 class="title">概算御見積書</h1>
+    {% else %}
+    <h1 class="title">御 見 積 書</h1>
+    {% endif %}
+
+    <div class="header-row">
+      <!-- 左: 宛先 -->
+      <div class="client-section">
+        <div class="client-name">
+          {{ client.name }}<span class="honorific"> 御中</span>
+        </div>
+        {% if client.department %}
+        <div class="client-detail">{{ client.department }}</div>
+        {% endif %}
+        {% if client.person %}
+        <div class="client-detail">{{ client.person }} 様</div>
+        {% endif %}
+
+        <div class="summary-box">
+          <table class="summary-table">
+            <tr>
+              <td class="summary-label">件名</td>
+              <td class="summary-value">{{ subject }}</td>
+            </tr>
+            <tr>
+              <td class="summary-label">合計金額</td>
+              <td class="summary-value total-amount">
+                ¥ {{ "{:,.0f}".format(total_with_tax) }}（税込）
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- 右: 発行者情報 -->
+      <div class="issuer-section">
+        <div class="estimate-meta">
+          <table>
+            <tr><td>見積日:</td><td>{{ date }}</td></tr>
+          </table>
+        </div>
+
+        <div class="company-info">
+          {% if company.logo_path %}
+          <img src="{{ company.logo_path }}" alt="{{ company.name }}" class="company-logo">
+          {% endif %}
+          <div class="company-name">{{ company.name }}</div>
+          <div class="company-detail">〒{{ company.postal_code }}</div>
+          <div class="company-detail">{{ company.address }}</div>
+          {% if company.address2 %}
+          <div class="company-detail">{{ company.address2 }}</div>
+          {% endif %}
+          <div class="company-detail">TEL: {{ company.tel }}{% if company.fax %} / FAX: {{ company.fax }}{% endif %}</div>
+          <div class="company-detail">{{ company.email }}</div>
+          {% if company.registration_number %}
+          <div class="company-detail registration">登録番号: {{ company.registration_number }}</div>
+          {% endif %}
+        </div>
+
+        <div class="stamp-area">
+          {% if company.stamp_path %}
+          <img src="{{ company.stamp_path }}" alt="印" class="stamp-image">
+          {% else %}
+          <div class="stamp-box"></div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- 明細テーブル -->
+    <table class="items-table">
+      <thead>
+        <tr>
+          <th class="col-no">No.</th>
+          <th class="col-name">項目</th>
+          <th class="col-qty">数量</th>
+          <th class="col-unit">単位</th>
+          <th class="col-price">単価</th>
+          <th class="col-amount">金額</th>
+          {% if has_notes %}<th class="col-note">備考</th>{% endif %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+        <tr>
+          <td class="center">{{ loop.index }}</td>
+          <td>{{ item.name }}</td>
+          <td class="right">{{ item.quantity }}</td>
+          <td class="center">{{ item.unit }}</td>
+          <td class="right">¥ {{ "{:,.0f}".format(item.unit_price) }}</td>
+          <td class="right">¥ {{ "{:,.0f}".format(item.amount) }}</td>
+          {% if has_notes %}<td>{{ item.note | default("") }}</td>{% endif %}
+        </tr>
+        {% endfor %}
+        <!-- 空行で体裁を整える -->
+        {% for i in range(empty_rows) %}
+        <tr class="empty-row">
+          <td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td>
+          {% if has_notes %}<td></td>{% endif %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- 合計欄 -->
+    <div class="totals-section">
+      <table class="totals-table">
+        <tr>
+          <td class="totals-label">小計</td>
+          <td class="totals-value">¥ {{ "{:,.0f}".format(subtotal) }}</td>
+        </tr>
+        <tr>
+          <td class="totals-label">消費税（{{ "{:.0f}".format(tax_rate * 100) }}%）</td>
+          <td class="totals-value">¥ {{ "{:,.0f}".format(tax_amount) }}</td>
+        </tr>
+        <tr class="grand-total">
+          <td class="totals-label">合計（税込）</td>
+          <td class="totals-value">¥ {{ "{:,.0f}".format(total_with_tax) }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 備考 -->
+    {% if notes %}
+    <div class="notes-section">
+      <div class="notes-title">備考</div>
+      <div class="notes-content">{{ notes }}</div>
+    </div>
+    {% endif %}
+
+    {% if remarks %}
+    <div class="remarks-section">
+      <div class="remarks-title">特記事項</div>
+      <div class="remarks-content">{{ remarks }}</div>
+    </div>
+    {% endif %}
+
+  </div>
+</body>
+</html>

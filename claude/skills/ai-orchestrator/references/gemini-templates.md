@@ -32,7 +32,7 @@ mcp__gemini-cli__geminiChat({
 - **Info**: 改善提案
 
 各指摘に具体的な修正案を添えてください。`,
-  model: "gemini-2.5-pro"
+  model: "gemini-3-pro-preview"
 })
 ```
 
@@ -51,7 +51,7 @@ mcp__gemini-cli__geminiChat({
 
 可能であれば具体的なコード例も含めてください。
 結論として、推奨アプローチを1つ選び理由を説明してください。`,
-  model: "gemini-2.5-pro"
+  model: "gemini-3-pro-preview"
 })
 ```
 
@@ -104,7 +104,7 @@ mcp__gemini-cli__geminiChat({
 
 考えられる原因を可能性の高い順に列挙し、
 各原因の確認方法と修正手順を教えてください。`,
-  model: "gemini-2.5-pro"
+  model: "gemini-3-pro-preview"
 })
 ```
 
@@ -133,7 +133,7 @@ mcp__gemini-cli__geminiChat({
 2. [具体的な質問2]
 
 業界のベストプラクティスも踏まえてアドバイスをお願いします。`,
-  model: "gemini-2.5-pro"
+  model: "gemini-3-pro-preview"
 })
 ```
 
@@ -163,7 +163,7 @@ mcp__gemini-cli__geminiChat({
 2. 攻撃シナリオ
 3. 具体的な修正案
 を提示してください。`,
-  model: "gemini-2.5-pro"
+  model: "gemini-3-pro-preview"
 })
 ```
 
@@ -171,7 +171,7 @@ mcp__gemini-cli__geminiChat({
 
 | 目的 | ツール | モデル |
 |------|--------|-------|
-| 深い分析・レビュー | `geminiChat` | `gemini-2.5-pro` |
-| 素早い確認・質問 | `geminiChat` | `gemini-2.5-flash` |
+| 深い分析・レビュー | `geminiChat` | `gemini-3-pro-preview` |
+| 素早い確認・質問 | `geminiChat` | `gemini-3-flash-preview` |
 | 最新情報の調査 | `googleSearch` | (自動) |
 | 既知の問題検索 | `googleSearch` → `geminiChat` | 検索後に深堀り |

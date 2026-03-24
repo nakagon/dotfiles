@@ -111,3 +111,5 @@
 [merge]
   conflictstyle = zdiff3
 [commit]
+[coderabbit]
+	machineId = cli/a513810454db426eb0eb77719bac59b0

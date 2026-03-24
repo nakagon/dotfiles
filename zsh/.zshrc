@@ -7,9 +7,14 @@ SAVEHIST=1000000
 setopt inc_append_history
 setopt share_history
 
-# prompt (minimal, no oh-my-zsh dependency)
+# completion
 autoload -Uz compinit && compinit
-PS1='%n@%m %1~ %# '
+
+# starship prompt (zsh専用設定)
+if command -v starship &>/dev/null; then
+    export STARSHIP_CONFIG="$HOME/.config/starship-zsh.toml"
+    eval "$(starship init zsh)"
+fi
 
 # cdr
 # $HOME/.cache/chpwd-recent-dirs ファイルが存在しなければ作成

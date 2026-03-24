@@ -1,7 +1,6 @@
-# Starship Prompt Configuration
+# Starship Prompt Configuration (fish)
 # https://starship.rs/config/
 
-# Reduce prompt delay
 command_timeout = 500
 
 [character]

@@ -51,4 +51,20 @@
 - **No Laziness**: Find root causes. No temporary fixes. Senior developer standards.
 - **Minimal Impact**: Changes should only touch what's necessary. Avoid introducing bugs.
 
+## Superpowers Override (Superset 環境向け)
 
+Superset がワークスペースの隔離・ブランチ管理・エージェント並列化を担当するため、
+以下の Superpowers スキルは **使用禁止**:
+
+- **using-git-worktrees** — Superset が worktree を作成・管理する。Superpowers が追加で worktree を作ってはならない
+- **finishing-a-development-branch** — ブランチの完了・マージ・クリーンアップは Superset のワークフローに従う
+- **dispatching-parallel-agents** — エージェントの並列実行は Superset が管理する
+
+上記スキルが他スキルから REQUIRED として参照されている場合でも、スキップすること。
+既に Superset が提供している機能を二重に実行してはならない。
+
+以下のスキルは **使用してよい**:
+- brainstorming, writing-plans, test-driven-development, systematic-debugging
+- verification-before-completion, requesting-code-review, receiving-code-review
+- subagent-driven-development（ただし worktree 作成ステップはスキップ）
+- executing-plans（ただし worktree 作成・ブランチ完了ステップはスキップ）

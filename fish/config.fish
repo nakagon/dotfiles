@@ -28,8 +28,9 @@ if status is-interactive
         direnv hook fish | source
     end
 
-    # starship prompt
+    # starship prompt (fish用デフォルト設定に戻す)
     if type -q starship
+        set -gx STARSHIP_CONFIG "$HOME/.config/starship.toml"
         starship init fish | source
     end
 
@@ -129,3 +130,7 @@ end
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/nakahiro/workspace/discord_translator/google-cloud-sdk/path.fish.inc' ]; . '/Users/nakahiro/workspace/discord_translator/google-cloud-sdk/path.fish.inc'; end
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :

@@ -1,0 +1,66 @@
+# Starship Prompt Configuration (zsh)
+# https://starship.rs/config/
+
+command_timeout = 500
+
+# zsh であることを示すフォーマット
+format = """
+[zsh](bold dimmed white) $directory$git_branch$git_status$python$nodejs$ruby$golang$cmd_duration
+$character"""
+
+[character]
+success_symbol = "[▶](bold blue)"
+error_symbol = "[▶](bold red)"
+
+[directory]
+truncation_length = 5
+truncate_to_repo = false
+style = "bold blue"
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
+style = "bold green"
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+style = "bold red"
+conflicted = "="
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count}"
+stashed = "≡${count}"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+
+[cmd_duration]
+min_time = 2000
+format = "[$duration]($style) "
+style = "bold yellow"
+
+[python]
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[nodejs]
+format = "[$symbol($version )]($style)"
+
+[ruby]
+format = "[$symbol($version )]($style)"
+
+[golang]
+format = "[$symbol($version )]($style)"
+
+# Disable modules not typically needed
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[package]
+disabled = true

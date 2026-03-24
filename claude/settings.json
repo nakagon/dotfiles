@@ -77,11 +77,71 @@
       "MultiEdit(**/.env)"
     ]
   },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.py"
+  },
   "enabledPlugins": {
     "claude-delegator@jarrodwatts-claude-delegator": true,
     "ralph-loop@claude-plugins-official": true,
     "code-simplifier@claude-plugins-official": true,
-    "claude-mem@thedotmack": true
+    "claude-mem@thedotmack": true,
+    "superpowers@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
   "skipDangerousModePermissionPrompt": true,
@@ -95,10 +155,6 @@
   },
   "feedbackSurveyState": {
     "lastShownTime": 1754021626360
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "bash ~/.claude/statusline-command.sh"
   },
   "mcpServers": {
     "codex": {
@@ -116,7 +172,8 @@
       "command": "/Users/nakahiro/.local/bin/lazytail",
       "args": [
         "--mcp"
-      ]
+      ],
+      "cwd": "/Users/nakahiro/workspace/samurai-seller"
     }
   }
 }

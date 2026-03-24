@@ -1,0 +1,34 @@
+# 見積書発行元の会社情報
+# このファイルをコピーして config.yaml として保存し、自社情報を記入してください。
+# cp config.yaml.sample config.yaml
+
+company:
+  name: "株式会社サンプル"
+  name_en: "Sample Inc."           # 省略可
+  postal_code: "100-0001"
+  address: "東京都千代田区千代田1-1-1"
+  address2: "サンプルビル5F"        # 省略可
+  tel: "03-1234-5678"
+  fax: ""                          # 省略可
+  email: "info@example.com"
+  url: "https://example.com"       # 省略可
+  registration_number: "T1234567890123"  # 適格請求書発行事業者登録番号
+  logo_path: ""                    # ロゴ画像パス（省略可、絶対パス推奨）
+  stamp_path: ""                   # 電子印鑑画像パス（省略可、絶対パス推奨）
+
+# デフォルト設定
+defaults:
+  tax_rate: 0.10
+  valid_days_formal: 30            # 正式見積の有効日数
+  valid_days_rough: 7              # 概算見積の有効日数
+  output_dir: "~/Desktop"          # PDF出力先
+  notes: |
+    お支払い条件: 納品月末締め翌月末払い
+
+# 振込先情報（省略可）
+bank:
+  name: "サンプル銀行"
+  branch: "本店"
+  type: "普通"
+  number: "1234567"
+  holder: "カ）サンプル"

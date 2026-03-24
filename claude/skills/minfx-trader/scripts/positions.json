@@ -1,0 +1,62 @@
+[
+  {
+    "direction": "BUY",
+    "lot": 3,
+    "entry_price": 8.911,
+    "sl_price": 8.879480000000001,
+    "tp_price": 8.949704,
+    "bar_time": "2026-03-12 22:30:00+09:00",
+    "entry_time": "2026-03-12T22:55:10.418217+09:00",
+    "status": "closed_tp",
+    "close_price": 8.9516,
+    "close_time": "2026-03-13T22:00:17.505919+09:00"
+  },
+  {
+    "direction": "BUY",
+    "lot": 3,
+    "entry_price": 8.903,
+    "sl_price": 8.872720000000001,
+    "tp_price": 8.942416000000001,
+    "bar_time": "2026-03-12 23:00:00+09:00",
+    "entry_time": "2026-03-12T23:00:10.295529+09:00",
+    "status": "closed_tp",
+    "close_price": 8.9466,
+    "close_time": "2026-03-13T02:25:08.231835+09:00"
+  },
+  {
+    "direction": "BUY",
+    "lot": 8,
+    "entry_price": 8.892,
+    "sl_price": 8.87262,
+    "tp_price": 8.927135999999999,
+    "bar_time": "2026-03-13 16:30:00+09:00",
+    "entry_time": "2026-03-13T16:50:11.003744+09:00",
+    "status": "closed_tp",
+    "close_price": 8.9286,
+    "close_time": "2026-03-13T19:15:08.060796+09:00"
+  },
+  {
+    "direction": "BUY",
+    "lot": 8,
+    "entry_price": 8.889,
+    "sl_price": 8.8673,
+    "tp_price": 8.92032,
+    "bar_time": "2026-03-13 17:00:00+09:00",
+    "entry_time": "2026-03-13T17:00:09.916529+09:00",
+    "status": "closed_tp",
+    "close_price": 8.9206,
+    "close_time": "2026-03-13T18:59:47.438634+09:00"
+  },
+  {
+    "direction": "BUY",
+    "lot": 8,
+    "entry_price": 8.889,
+    "sl_price": 8.868400000000001,
+    "tp_price": 8.9212,
+    "bar_time": "2026-03-13 17:30:00+09:00",
+    "entry_time": "2026-03-13T17:30:10.195986+09:00",
+    "status": "closed_tp",
+    "close_price": 8.9216,
+    "close_time": "2026-03-13T19:00:06.762201+09:00"
+  }
+]
